@@ -1,3 +1,5 @@
+package com.hazelcast.springone;
+
 import org.springframework.data.keyvalue.repository.KeyValueRepository;
 
 /**

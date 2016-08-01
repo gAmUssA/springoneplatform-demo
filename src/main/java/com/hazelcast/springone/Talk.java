@@ -1,4 +1,7 @@
+package com.hazelcast.springone;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.keyvalue.annotation.KeySpace;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +13,7 @@ import java.util.Date;
  *         Twitter: @gamussa
  * @since 0.0.1
  */
+@KeySpace
 public class Talk implements Serializable {
     @Id
     //    @GeneratedValue

@@ -1,6 +1,10 @@
+import com.hazelcast.springone.AppConfig;
+import com.hazelcast.springone.Speaker;
+import com.hazelcast.springone.SpeakerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
-@Transactional
+@DirtiesContext
 public class AppTest {
 
     @Autowired
@@ -22,6 +26,7 @@ public class AppTest {
 
     @Test
     public void testStart(){
-        speakerRepository.findAll();
+        final Iterable<Speaker> all = speakerRepository.findAll();
+        System.out.println(all);
     }
 }

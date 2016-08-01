@@ -1,3 +1,5 @@
+package com.hazelcast.springone;
+
 import com.hazelcast.core.HazelcastInstance;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

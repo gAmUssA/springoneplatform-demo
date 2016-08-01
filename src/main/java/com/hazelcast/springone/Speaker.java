@@ -1,4 +1,7 @@
+package com.hazelcast.springone;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.keyvalue.annotation.KeySpace;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -11,21 +14,23 @@ import java.util.Set;
  *         Twitter: @gamussa
  * @since 0.0.1
  */
+@KeySpace("speakers")
 public class Speaker implements Serializable {
     @Id
-    //@GeneratedValue
-    private Long speakerId;
+    private final Long speakerId;
 
-    private String name;
+    private final String name;
 
-    //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Talk> talks;
 
-    public Speaker() {
+    public Speaker(Long speakerId, String name) {
+        this.speakerId = speakerId;
+        this.name = name;
     }
 
     public Speaker(String name) {
         this.name = name;
+        speakerId = null;
     }
 
     public void addTalk(Talk talk) {
@@ -42,4 +47,7 @@ public class Speaker implements Serializable {
         return talks;
     }
 
+    public Long getId() {
+        return this.speakerId;
+    }
 }
