@@ -21,26 +21,26 @@ import static java.util.Date.from;
 public class Starter {
     public static void main(String[] args) {
         System.setProperty("hazelcast.logging.type", "slf4j");
+
         final HazelcastInstance hazelcastInstance = newHazelcastInstance();
         final IMap<Long, Speaker> speakers = hazelcastInstance.getMap("speakers");
         populateSpeakers(speakers);
     }
 
-    private static void populateSpeakers(IMap<Long, Speaker> speakers) {
-        Speaker jeka = new Speaker(1L, "Evgeny Borisov");
-        jeka.addTalk(new Talk("Spring The Ripper", time("12:30")));
-        jeka.addTalk(new Talk("Spring Data", time("17:30")));
-        speakers.set(jeka.getId(), jeka);
+    public static void populateSpeakers(IMap<Long, Speaker> speakers) {
+        Speaker joshLong = new Speaker(1L, "Josh Long");
+        joshLong.addTalk(new Talk("Keynote", time("9:30")));
+        joshLong.addTalk(new Talk("Cloud Native Java", time("14:00")));
+        speakers.set(joshLong.getId(), joshLong);
 
+        Speaker danveloper = new Speaker(2L, "Dan Woods");
+        danveloper.addTalk(new Talk("High Performance Microservices with Ratpack and Spring Boot", time("11:00")));
+        speakers.set(danveloper.getId(), danveloper);
 
-        Speaker nikolay = new Speaker(2L, "Nikolay Alimenkov");
-        nikolay.addTalk(new Talk("CD JEE7", time("18:00")));
-        speakers.set(nikolay.getId(), nikolay);
-
-        Speaker baruch = new Speaker(3L, "Baruch Sadogursky");
-        baruch.addTalk(new Talk("AST Groovy", time("12:00")));
-        baruch.addTalk(new Talk("Making Spring Groovy", time("09:00")));
-        speakers.set(baruch.getId(), baruch);
+        Speaker oliverG = new Speaker(3L, "Oliver Gierke");
+        oliverG.addTalk(new Talk("DDD & REST - Domain Driven APIs for the Web", time("17:00")));
+        oliverG.addTalk(new Talk("Advanced Spring Data REST", time("11:10")));
+        speakers.set(oliverG.getId(), oliverG);
     }
 
     private static Date time(String time) {

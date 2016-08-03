@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * TODO
+ * Domain Object
+ *
+ * @KeySpace annotation points to Hazelcast IMap stored speaker objects
  *
  * @author Viktor Gamov on 7/25/16.
  *         Twitter: @gamussa

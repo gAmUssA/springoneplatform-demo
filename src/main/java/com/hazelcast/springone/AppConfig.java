@@ -8,6 +8,8 @@ import org.springframework.data.hazelcast.repository.config.EnableHazelcastRepos
 import org.springframework.data.keyvalue.core.KeyValueOperations;
 import org.springframework.data.keyvalue.core.KeyValueTemplate;
 
+import static com.hazelcast.client.HazelcastClient.newHazelcastClient;
+
 /**
  * TODO
  *
@@ -22,10 +24,8 @@ public class AppConfig {
 
     @Bean
     HazelcastInstance hazelcastInstance() {
-
         System.setProperty("hazelcast.logging.type", "slf4j");
-        final HazelcastInstance hazelcastClient = com.hazelcast.client.HazelcastClient.newHazelcastClient();
-        return hazelcastClient;
+        return newHazelcastClient();
     }
 
     @Bean

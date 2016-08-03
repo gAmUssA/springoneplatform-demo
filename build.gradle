@@ -10,7 +10,7 @@ repositories {
 
 
 dependencies {
-    compile('com.github.hazelcast-incubator:spring-data-integrations-commons:master-SNAPSHOT') {
+    compile('com.github.hazelcast:spring-data-hazelcast:master-SNAPSHOT') {
         exclude group: 'com.hazelcast'
     }
     compile "com.hazelcast:hazelcast-all:3.6.4"
@@ -19,6 +19,8 @@ dependencies {
     compile 'ch.qos.logback:logback-classic:1.1.3'
 
     testCompile "junit:junit:4.12"
+    testCompile "com.hazelcast:hazelcast:3.6.4:tests"
+    testCompile "log4j:log4j:1.2.17"
     testCompile "org.springframework:spring-test:4.2.6.RELEASE"
 }
 
