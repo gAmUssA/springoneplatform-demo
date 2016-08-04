@@ -2,6 +2,7 @@ package com.hazelcast.springone;
 
 import com.hazelcast.core.HazelcastInstance;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.hazelcast.HazelcastKeyValueAdapter;
 import org.springframework.data.hazelcast.repository.config.EnableHazelcastRepositories;
@@ -19,6 +20,7 @@ import static com.hazelcast.client.HazelcastClient.newHazelcastClient;
  */
 @Configuration
 @EnableHazelcastRepositories
+@ComponentScan
 public class AppConfig {
 
 

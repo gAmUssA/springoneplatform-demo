@@ -1,9 +1,9 @@
 package com.hazelcast.springone;
 
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
 
 import java.util.Date;
+import java.util.Map;
 
 import static com.hazelcast.core.Hazelcast.newHazelcastInstance;
 import static java.time.LocalDate.now;
@@ -23,24 +23,24 @@ public class Starter {
         System.setProperty("hazelcast.logging.type", "slf4j");
 
         final HazelcastInstance hazelcastInstance = newHazelcastInstance();
-        final IMap<Long, Speaker> speakers = hazelcastInstance.getMap("speakers");
+        final Map<Long, Speaker> speakers = hazelcastInstance.getMap("speakers");
         populateSpeakers(speakers);
     }
 
-    public static void populateSpeakers(IMap<Long, Speaker> speakers) {
+    public static void populateSpeakers(Map<Long, Speaker> speakers) {
         Speaker joshLong = new Speaker(1L, "Josh Long");
         joshLong.addTalk(new Talk("Keynote", time("9:30")));
         joshLong.addTalk(new Talk("Cloud Native Java", time("14:00")));
-        speakers.set(joshLong.getId(), joshLong);
+        speakers.put(joshLong.getId(), joshLong);
 
         Speaker danveloper = new Speaker(2L, "Dan Woods");
         danveloper.addTalk(new Talk("High Performance Microservices with Ratpack and Spring Boot", time("11:00")));
-        speakers.set(danveloper.getId(), danveloper);
+        speakers.put(danveloper.getId(), danveloper);
 
         Speaker oliverG = new Speaker(3L, "Oliver Gierke");
         oliverG.addTalk(new Talk("DDD & REST - Domain Driven APIs for the Web", time("17:00")));
         oliverG.addTalk(new Talk("Advanced Spring Data REST", time("11:10")));
-        speakers.set(oliverG.getId(), oliverG);
+        speakers.put(oliverG.getId(), oliverG);
     }
 
     private static Date time(String time) {
