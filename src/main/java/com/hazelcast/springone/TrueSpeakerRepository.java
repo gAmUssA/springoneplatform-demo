@@ -11,9 +11,7 @@ import java.util.List;
  *         Twitter: @gamussa
  * @since 0.0.1
  */
-public interface SpeakerRepository extends KeyValueRepository<Speaker, Long> {
+public interface TrueSpeakerRepository extends KeyValueRepository<Speaker, Long> {
 
-    public List<Speaker> findByName(String s);
-
-    public List<Speaker> findByNameLike(String s);
+    List<Speaker> findByName(String s);
 }

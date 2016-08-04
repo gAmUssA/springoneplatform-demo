@@ -1,7 +1,4 @@
-import com.hazelcast.springone.AppConfig;
-import com.hazelcast.springone.NaiveSpeakerRepository;
-import com.hazelcast.springone.Speaker;
-import com.hazelcast.springone.Talk;
+import com.hazelcast.springone.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Set;
 
 /**
- * TODO
+ * Simple Repositories Test
  *
  * @author Viktor Gamov on 7/25/16.
  *         Twitter: @gamussa
@@ -23,23 +20,26 @@ import java.util.Set;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
 @DirtiesContext
-public class AppTest{
+public class AppTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(AppTest.class);
 
     @Autowired
-    //SpeakerRepository speakerRepository;
+    //TrueSpeakerRepository speakerRepository;
     NaiveSpeakerRepository speakerRepository;
 
     @Test
-    public void testHazelcast() {
-
+    public void testCount() {
         LOG.info("********* COUNT ***********");
         LOG.info("count = " + speakerRepository.count());
-        Iterable<Speaker> allSpeakers = speakerRepository.getAllSpeakers();
+        Iterable<Speaker> allSpeakers = speakerRepository.findAll();
         for (Speaker speaker : allSpeakers) {
             LOG.info(speaker.getName());
         }
+    }
+
+    @Test
+    public void testByName() {
         LOG.info("********* FIND Josh Longs as a Speaker ***********");
         Speaker speaker = speakerRepository.findByName("Josh Long").get(0);
         Set<Talk> talks = speaker.getTalks();
@@ -47,6 +47,10 @@ public class AppTest{
             LOG.info("talk = " + talk);
         }
 
+    }
+
+    @Test
+    public void testLike() {
         /*LOG.info("********* ALL SPEAKERS WITH oo ***********");
         List<Speaker> speakers = speakerRepository.findByNameLike("%oo%");
         for (Speaker speaker1 : speakers) {

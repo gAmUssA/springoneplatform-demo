@@ -17,22 +17,22 @@ public class NaiveSpeakerRepository {
     private IMap<Long, Speaker> speakers;
 
     @Autowired
-    public void setHazelcastInstance(HazelcastInstance instance) {
+    public void setHazelcastInstance(final HazelcastInstance instance) {
         this.hazelcastInstance = instance;
         this.speakers = instance.getMap("speakers");
 
     }
 
-    public Speaker findOne(Long key) {
+    public Speaker findOne(final Long key) {
         return speakers.get(key);
     }
 
-    public List<Speaker> findByName(String name) {
+    public List<Speaker> findByName(final String name) {
         final Collection<Speaker> values = speakers.values(Predicates.equal("name", name));
         return new ArrayList(values);
     }
 
-    public List<Speaker> getAllSpeakers() {
+    public List<Speaker> findAll() {
         return new ArrayList(speakers.values());
     }
 

@@ -1,7 +1,5 @@
 package com.hazelcast.springone;
 
-import com.hazelcast.core.HazelcastInstance;
-
 import static com.hazelcast.core.Hazelcast.newHazelcastInstance;
 
 /**
@@ -10,6 +8,6 @@ import static com.hazelcast.core.Hazelcast.newHazelcastInstance;
 public class Member {
     public static void main(String[] args) {
         System.setProperty("hazelcast.logging.type", "slf4j");
-        final HazelcastInstance hazelcastInstance = newHazelcastInstance();
+        newHazelcastInstance();
     }
 }

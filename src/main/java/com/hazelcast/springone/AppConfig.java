@@ -12,7 +12,7 @@ import org.springframework.data.keyvalue.core.KeyValueTemplate;
 import static com.hazelcast.client.HazelcastClient.newHazelcastClient;
 
 /**
- * TODO
+ * Spring Application Config
  *
  * @author Viktor Gamov on 7/25/16.
  *         Twitter: @gamussa
@@ -22,7 +22,6 @@ import static com.hazelcast.client.HazelcastClient.newHazelcastClient;
 @EnableHazelcastRepositories
 @ComponentScan
 public class AppConfig {
-
 
     @Bean
     HazelcastInstance hazelcastInstance() {
