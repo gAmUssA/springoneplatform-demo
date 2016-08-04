@@ -1,4 +1,7 @@
-import com.hazelcast.springone.*;
+import com.hazelcast.springone.AppConfig;
+import com.hazelcast.springone.NaiveSpeakerRepository;
+import com.hazelcast.springone.Speaker;
+import com.hazelcast.springone.Talk;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -52,9 +55,12 @@ public class AppTest {
     @Test
     public void testLike() {
         /*LOG.info("********* ALL SPEAKERS WITH oo ***********");
-        List<Speaker> speakers = speakerRepository.findByNameLike("%oo%");
+        List<Speaker> speakers = speakerRepository.findПожалуйстаByNameLike("%oo%");
         for (Speaker speaker1 : speakers) {
             LOG.info(speaker1.getName());
+            if (speaker1.getName().contains("Dan")){
+                LOG.info("#unfollowdanveloper");
+            }
         }*/
     }
 
