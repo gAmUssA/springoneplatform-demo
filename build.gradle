@@ -3,18 +3,13 @@ apply plugin: 'idea'
 
 repositories {
     jcenter()
-    mavenCentral()
-
-    maven {
-        url "https://jitpack.io"
-    }
 }
 
 dependencies {
-    compile('com.github.hazelcast:spring-data-hazelcast:master-SNAPSHOT') {
+    compile('com.hazelcast:spring-data-hazelcast:1.0') {
         exclude group: 'com.hazelcast'
     }
-    compile "com.hazelcast:hazelcast-all:3.6.4"
+    compile "com.hazelcast:hazelcast-all:3.7"
     compile 'org.slf4j:slf4j-api:1.7.12'
     compile 'ch.qos.logback:logback-classic:1.1.3'
 
